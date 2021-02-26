@@ -17,7 +17,8 @@ struct ContentView: View {
             }) {
                 print("onCommit")
             }
-            .modifier(NeomorphicTextFieldModifier())
+            //.modifier(NeomorphicTextFieldModifier())
+            .neumorphicTextField()
             
             Text(email)
                 .bold()
@@ -53,6 +54,12 @@ struct NeomorphicTextFieldModifier: ViewModifier {
                             .stroke(Color(.systemGray2), lineWidth: 2)
                     )
             )
+    }
+}
+
+extension View {
+    func neumorphicTextField() -> some View {
+        modifier(NeomorphicTextFieldModifier())
     }
 }
 
