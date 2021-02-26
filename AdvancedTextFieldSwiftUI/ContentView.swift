@@ -17,14 +17,22 @@ struct ContentView: View {
             }) {
                 print("onCommit")
             }
-            .textFieldStyle(RoundedBorderTextFieldStyle())
+            //.textFieldStyle(RoundedBorderTextFieldStyle())
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.accentColor)
             .keyboardType(.emailAddress)
             .autocapitalization(.none)
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
-            .background(Color.gray.opacity(0.2))
+            //.background(Color.gray.opacity(0.2))
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color(.systemGray6))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color(.systemGray2), lineWidth: 2)
+                    )
+            )
             
             Text(email)
                 .bold()
