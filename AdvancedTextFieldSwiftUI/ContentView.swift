@@ -34,7 +34,7 @@ struct ContentView: View {
             
             if isValidEmail {
                 Button(action: {
-                    print("login...")
+                    hideKeyboard()
                 }, label: {
                     Text("Login")
                         .bold()
@@ -70,6 +70,12 @@ struct NeomorphicTextFieldModifier: ViewModifier {
 extension View {
     func neumorphicTextField() -> some View {
         modifier(NeomorphicTextFieldModifier())
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.becomeFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
