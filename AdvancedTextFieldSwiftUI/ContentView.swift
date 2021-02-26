@@ -30,6 +30,7 @@ struct ContentView: View {
             
             Text(email)
                 .bold()
+                .foregroundColor(isValidEmail ? Color(.systemGray2) : .red)
             
             if isValidEmail {
                 Button(action: {
