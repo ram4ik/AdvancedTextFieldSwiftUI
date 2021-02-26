@@ -14,7 +14,9 @@ struct ContentView: View {
         VStack(spacing: 24) {
             TextField("Enter email", text: $email, onEditingChanged: { change in
                 print("onEditingChanged: \(change)")
-            })
+            }) {
+                print("onCommit")
+            }
             Text(email)
                 .bold()
             Spacer()
