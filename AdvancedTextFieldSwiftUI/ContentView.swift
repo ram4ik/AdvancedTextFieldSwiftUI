@@ -12,7 +12,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            TextField("Enter email", text: $email)
+            TextField("Enter email", text: $email, onEditingChanged: { change in
+                print("onEditingChanged: \(change)")
+            })
+            Text(email)
+                .bold()
             Spacer()
         }.padding()
     }
