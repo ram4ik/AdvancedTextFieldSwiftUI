@@ -17,8 +17,25 @@ struct ContentView: View {
             }) {
                 print("onCommit")
             }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .font(.system(size: 16, weight: .bold))
+            .foregroundColor(.accentColor)
+            .keyboardType(.emailAddress)
+            .autocapitalization(.none)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(Color.gray.opacity(0.2))
+            
             Text(email)
                 .bold()
+            
+            Button(action: {
+                print("login...")
+            }, label: {
+                Text("Login")
+                    .bold()
+            })
+            
             Spacer()
         }.padding()
     }
