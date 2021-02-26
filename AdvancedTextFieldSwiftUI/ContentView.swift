@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var email = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack(spacing: 24) {
+            TextField("Enter email", text: $email)
+            Spacer()
+        }.padding()
     }
 }
 
