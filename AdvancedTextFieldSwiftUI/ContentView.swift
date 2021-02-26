@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var email = ""
+    @State private var isValidEmail = false
     
     var body: some View {
         VStack(spacing: 24) {
@@ -19,17 +20,25 @@ struct ContentView: View {
             }
             //.modifier(NeomorphicTextFieldModifier())
             .neumorphicTextField()
+            .onChange(of: email, perform: { value in
+                if value.contains("@") {
+                    isValidEmail = true
+                } else {
+                    isValidEmail = false
+                }
+            })
             
             Text(email)
                 .bold()
             
-            Button(action: {
-                print("login...")
-            }, label: {
-                Text("Login")
-                    .bold()
-            })
-            
+            if isValidEmail {
+                Button(action: {
+                    print("login...")
+                }, label: {
+                    Text("Login")
+                        .bold()
+                })
+            }
             Spacer()
         }.padding()
     }
