@@ -17,6 +17,26 @@ struct ContentView: View {
             }) {
                 print("onCommit")
             }
+            .modifier(NeomorphicTextFieldModifier())
+            
+            Text(email)
+                .bold()
+            
+            Button(action: {
+                print("login...")
+            }, label: {
+                Text("Login")
+                    .bold()
+            })
+            
+            Spacer()
+        }.padding()
+    }
+}
+
+struct NeomorphicTextFieldModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
             //.textFieldStyle(RoundedBorderTextFieldStyle())
             .font(.system(size: 16, weight: .bold))
             .foregroundColor(.accentColor)
@@ -33,19 +53,6 @@ struct ContentView: View {
                             .stroke(Color(.systemGray2), lineWidth: 2)
                     )
             )
-            
-            Text(email)
-                .bold()
-            
-            Button(action: {
-                print("login...")
-            }, label: {
-                Text("Login")
-                    .bold()
-            })
-            
-            Spacer()
-        }.padding()
     }
 }
 
